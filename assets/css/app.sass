@@ -1,3 +1,166 @@
+\:root
+  --green: #00ad5d
+
+@import url('https://fonts.googleapis.com/css?family=Roboto')
 body
   margin: 0
   padding: 0
+  font-family: Roboto
+.container
+  width: 1150px
+  max-width: 100%
+  margin-left: auto
+  margin-right: auto
+  &-fluid
+    width: 100%
+.grid
+  display: grid
+.flex
+  display: flex
+
+
+.partners
+  padding-top: 80px
+  padding-bottom: 60px
+  &__title
+    font-size: 10rem
+    margin-top: 0
+    margin-bottom: 0
+    color: rgba(255, 221, 151, 0.69)
+    margin-left: 14vw
+    bottom: -30px
+    position: relative
+    z-index: 1
+  &__slider
+    width: 100%
+    overflow: hidden
+    background: rgba(255, 214, 23, 0.76)
+    margin-bottom: 50px
+  &__button-wrapper
+    text-align: center
+    margin: 50px auto
+  &__button-card
+    border: 1px solid black
+    color: green
+    background-color: rgba(253, 226, 171, 0.77)
+    margin-top: 50px
+    padding: 40px 20px 30px 20px
+    font-size: 4.5rem
+    font-weight: bold
+    text-decoration: none
+    max-width: 550px
+
+//.slick-slide
+//  width: 400px
+
+.partners__slide
+  width: 400px
+  max-width: 400px
+  padding: 30px
+  &-content
+    height: 390px
+    background-color: rgba(101, 50, 14, 0.5)
+
+.application
+  background: url("../img/bg-application.jpg") center no-repeat
+  background-size: cover
+  padding: 55px 0
+  &__benefits-wrapper
+    background-color: rgba(255, 255, 255, 0.32)
+    padding: 15px
+
+  &__benefits-grid
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-gap: 30px
+    width: 1500px
+    max-width: 100%
+    margin: 0 auto
+    //padding-left: 10vw
+    //padding-right: 10vw
+  &__benefits-item
+    display: grid
+    grid-template-rows: 175px 1fr
+    justify-items: center
+    //&:first-child
+
+
+.benefits__icon
+  background: url("../img/benefits-icon.svg") no-repeat center
+  background-size: contain
+  width: 134px
+  height: auto
+  max-width: 100%
+.benefits__description
+  color: white
+  font-size: 1.35rem
+  text-align: center
+
+.application
+  &__form
+    margin-top: 4vw
+    margin-bottom: 8vw
+    display: grid
+    grid-template-columns: auto 6fr 1fr 1fr 6fr
+    grid-template-rows: repeat(5, 1fr)
+    grid-row-gap: 50px
+    grid-column-gap: 30px
+    justify-items: right
+    width: 1500px
+    max-width: 100%
+    //padding-left: 15px
+    //padding-right: 15px
+    label
+      grid-column: 5
+      justify-items: right
+      margin-right: 15px
+  &__input
+    background: green
+    color: black
+    border: none
+    font-size: 2rem
+    padding: 20px 10px
+    text-align: right
+    &::placeholder
+      font-size: 2rem
+      color: black
+  &__submit
+    background: green
+    color: white
+    font-size: 2rem
+    border: none
+    width: 485px
+    max-width: 100%
+    margin-right: 15px
+    grid-column: 2/4
+    height: 95px
+    &:last-child
+      grid-column: 4/6
+
+.contacts
+  position: relative
+  &__title
+    font-size: 139pt
+    margin-top: 0
+    margin-bottom: 0
+    color: rgba(255, 221, 151, 0.69)
+    margin-left: 14vw
+    bottom: 100%
+    line-height: .75
+    position: absolute
+    z-index: 1
+  &__wrapper
+    width: 50%
+    max-width: 700px
+    margin-left: auto
+    padding: 85px
+    background: rgba(0, 0, 0, 0.33)
+    display: grid
+    grid-row-gap: 10px
+  &__input-phone
+    padding: 30px
+    background: var(--green)
+    border: none
+    color: white
+
+@import "responsive"

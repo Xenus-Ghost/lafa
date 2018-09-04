@@ -1,9 +1,78 @@
-$mobile-sm: 800px
+$mobile-sm: 801px
 
 @media screen and (max-width: $mobile-sm)
+  //.container
+  //  padding-left: 5px
+  //  padding-right: 5px
   .partners
     &__title
       font-size: 3rem
+      bottom: -100%
+      line-height: 75%
+      margin-left: 7vw
     &__slide
       &-content
         height: 150px
+    &__button-card
+      max-width: 100%
+      font-size: 1.75rem
+      padding: 20px 10px 15px 10px
+  .application
+    &__benefits-grid
+      //grid-template-columns: repeat(auto-fill,minmax(300px,1fr))
+      grid-template-columns: 1fr 1fr
+      grid-gap: 10px
+    &__benefits-item
+      grid-template-rows: 70px 1fr
+    &__form
+      grid-template-columns: 1fr
+      grid-template-rows: unset
+      grid-gap: 15px
+      width: unset
+      max-width: 100%
+      justify-items: center
+      label
+        grid-column: 1/2
+        margin-right: 0
+    &__input
+      padding: 5px 10px
+      font-size: 1.5rem
+      &::placeholder
+        font-size: 1.5rem
+    &__submit
+      grid-column: 1
+      width: 100%
+      max-width: 95vw
+      height: 60px
+      font-size: 1.5rem
+      margin-right: 0
+      margin-bottom: 5px
+      &:last-child
+        grid-column: 1
+        grid-row: 5
+  .benefits
+    &__description
+      font-size: 1rem
+    &__icon
+      width: 60px
+  .contacts
+    &__title
+      font-size: 2.25rem
+      margin-left: 7vw
+    &__wrapper
+      padding: 15px
+      margin-left: 0
+      width: unset
+      *
+        font-size: 1.25rem
+    &__icon
+      width: 30px
+    &__input-phone
+      padding: 10px
+      margin-bottom: 10px
+    &__submit
+      padding: 10px
+  .footer
+    padding-top: 8vw
+    &__container
+      padding: 0 15px

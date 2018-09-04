@@ -1,89 +1,34 @@
+var isSliderLoad=false;
+// var slides=[];
+var slides = [
+  {
+    "id": 1,
+    "title": "Test",
+    "logo": "/media/partners_logo/image-mg.png",
+    "description": "khaskjdhkjashdkashdkhasd",
+    "image_1": "/media/partners_image/image-mg.png",
+    "image_2": "/media/partners_image/image-mg_CBfa1UQ.png",
+    "image_3": "/media/partners_image/image-mg_yHdt2s0.png",
+    "address": null,
+    "phone_number": null
+  },
+  {
+    "id": 2,
+    "title": "Test2",
+    "logo": "/media/partners_logo/image-mg.png",
+    "description": "khaskjdhkjashdkashdkhasd",
+    "image_1": "/media/partners_image/image-mg.png",
+    "image_2": "/media/partners_image/image-mg_CBfa1UQ.png",
+    "image_3": "/media/partners_image/image-mg_yHdt2s0.png",
+    "address": null,
+    "phone_number": null
+  }
+];
+console.log(slides);
 $(document).ready(function(){
   
-  var isSliderLoad=false;
-  // var slides=[];
-  var slides=[
-    {
-      id:0,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:1,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:2,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:3,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:4,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:5,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:6,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    },
-    {
-      id:7,
-      img:{
-        src: 'https://pp.userapi.com/c844723/v844723111/d0e38/qNr4Mgc15dA.jpg',
-        alt: ''
-      }
-    }
-
-  ];
-  console.log(slides);
+  // slides=getSlides();
   printSlides();
-
-  function printSlides() {
-    var slider=document.getElementById('slider');
-
-    var renderedSlider='';
-
-    var slide;
-
-    // for(var i=0;i<10;i++)
-    slides.forEach(function(item, i, arr)
-    {
-      slide='<div id="slide-' + i + '" class="partners__slide slide slide-'+ i +'"><div  class="partners__slide-content">';
-      slide+='<img src="'+ item.img.src + '" class=\'slide__logo\'>';
-      slide+=item.id;
-
-      slide+='</div></div>';
-      renderedSlider+=slide;
-    })
-    slider.innerHTML = renderedSlider;
-
-  }
   
   $('.partners__slider').slick({
 
@@ -112,4 +57,60 @@ $(document).ready(function(){
     ]
 
 });
+
 });
+
+function printSlides() {
+  var slider=document.getElementById('slider');
+
+  var renderedSlider='';
+
+  var slide;
+
+  // for(var i=0;i<10;i++)
+  slides.forEach(function(item, i, arr)
+  {
+    slide='<div id="slide-' + item.id + '" class="partners__slide slide slide-'+ item.id +'" onclick="pertnerModalOpen(' + item.id + ')"><div  class="partners__slide-content">';
+    slide+='<img src="'+ item.logo + '" class="slide__logo">';
+    slide+='</div></div>';
+    renderedSlider+=slide;
+  })
+  slider.innerHTML = renderedSlider;
+
+}
+
+function getSlides(){
+  $.ajax({
+        url: "https://lafa.life/partners/api/v1/",
+        crossDomain: true
+      }
+  ).done( function () {
+    console.log(data)
+    slides=data;
+  });
+  return data;
+
+}
+
+function pertnerModalOpen(id) {
+
+  var slide=slides[id-1];
+
+  var modalContent='<h1>'+ slide.title +'</h1>';
+  modalContent+='<h2>'+ slide.description +'</h2>';
+
+  if (slide.image_1) {
+    modalContent += ' <img src="' + slide.image_1 + '" alt="">'
+  }
+  if (slide.image_2) {
+    modalContent += ' <img src="' + slide.image_2 + '" alt="">'
+  }
+  if (slide.image_3) {
+    modalContent += ' <img src="' + slide.image_3 + '" alt="">'
+  }
+
+  document.getElementById('partnerModal').innerHTML=modalContent;
+
+  $('#partnerModal').show();
+
+}
